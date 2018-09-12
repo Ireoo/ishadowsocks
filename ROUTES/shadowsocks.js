@@ -17,7 +17,7 @@ router.all("/", (req, res, next) => {
                 port = v[2],
                 code = v[3],
                 pass = v[4];
-            let address = `${ip}:${port}:origin:${code}:plain:${pass}/?obfsparam=&remarks=${name}&group=${group}`;
+            let address = `${ip}:${port}:origin:${code}:plain:${pass}/?remarks=${name}&group=${group}`;
             let s = "ssr://" + new Buffer(address).toString("base64");
             console.log(`ssr://${address}`);
             ss.push(s);
