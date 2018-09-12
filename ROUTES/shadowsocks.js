@@ -12,7 +12,7 @@ router.all("/", (req, res, next) => {
         let ss = [];
         r.data.data.forEach(v => {
             let name = new Buffer(`${v[6]} - ${v[5]}`).toString('base64');
-            let s = new Buffer(`${v[1]}:${v[2]}:origin:${v[3]}:plain:${v[4]}/?obfsparam=&remarks=${name}&group=aXNoYWRvd3NvY2tzLmhlcm9rdWFwcC5jb20vc2hhZG93c29ja3MK`).toString("base64");
+            let s = "ssr://" + new Buffer(`${v[1]}:${v[2]}:origin:${v[3]}:plain:${v[4]}/?obfsparam=&remarks=${name}&group=aXNoYWRvd3NvY2tzLmhlcm9rdWFwcC5jb20vc2hhZG93c29ja3MK`).toString("base64");
             // console.log(s);
             ss.push(s);
         });
