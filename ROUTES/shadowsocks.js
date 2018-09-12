@@ -19,7 +19,7 @@ router.all("/", (req, res, next) => {
                 code = v[3],
                 pass = v[4];
             let address = `${ip}:${port}:origin:${code}:plain:${pass}/?remarks=${name}&group=${group}`;
-            let s = "ssr://" + Base64.encode(address);
+            let s = "ssr://" + Base64.encode(address).replace("=", "");
             console.log(`ssr://${address}`);
             ss.push(s);
         });
