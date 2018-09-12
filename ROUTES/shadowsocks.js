@@ -8,7 +8,7 @@ router.auth = true;
 
 router.all("/", (req, res, next) => {
     axios.get(`https://free-ss.site/ss.json?_=${new Date().getTime()}`).then(r => {
-        // console.log(r.data);
+        console.log(r.data);
         let ss = [];
         if(r.data) {
             r.data.forEach(v => {
