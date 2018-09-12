@@ -13,7 +13,11 @@ router.all("/", (req, res, next) => {
         r.data.data.forEach(v => {
             let name = new Buffer(`${v[6]} - iShadowsocks`).toString("base64");
             let group = new Buffer("iShadowsocks").toString("base64");
-            let s = "ssr://" + new Buffer(`${v[1]}:${v[2]}:origin:${v[3]}:plain:${v[4].toString()}/?obfsparam=&remarks=${name}&group=${group}`).toString("base64");
+            let ip = v[1],
+                port = v[2],
+                code = v[3],
+                pass = v[4];
+            let s = "ssr://" + new Buffer(`${ip}:${port}:origin:${code}:plain:${pass}/?obfsparam=&remarks=${name}&group=${group}`).toString("base64");
             console.log(`ssr://${v[1]}:${v[2]}:origin:${v[3]}:plain:${v[4].toString()}/?obfsparam=&remarks=${name}&group=${group}`);
             ss.push(s);
         });
