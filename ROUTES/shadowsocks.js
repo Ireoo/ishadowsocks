@@ -14,7 +14,7 @@ router.all("/", (req, res, next) => {
             let name = new Buffer(`${v[6]} - iShadowsocks`).toString("base64");
             let group = new Buffer("iShadowsocks").toString("base64");
             let s = "ssr://" + new Buffer(`${v[1]}:${v[2]}:origin:${v[3]}:plain:${v[4].toString()}/?obfsparam=&remarks=${name}&group=${group}`).toString("base64");
-            // console.log(s);
+            console.log(`ssr://${v[1]}:${v[2]}:origin:${v[3]}:plain:${v[4].toString()}/?obfsparam=&remarks=${name}&group=${group}`);
             ss.push(s);
         });
         res.status(200).send(new Buffer(ss.join("\r\n")).toString("base64"));
