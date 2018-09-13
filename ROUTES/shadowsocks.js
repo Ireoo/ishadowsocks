@@ -15,7 +15,7 @@ router.all("/", (req, res, next) => {
 
 
  
-    gitPullOrClone('git@github.com:feross/standard.git', path.join(process.cwd(), "sub"), (err) => {
+    gitPullOrClone("https://github.com/ImLaoD/sub.git", path.join(process.cwd(), "sub"), (err) => {
         if (err) return res.status(404).send(err);
         let ss = fs.readFileSync(path.join(process.cwd(), "sub", "ssshare.com"), "utf8");
         res.status(200).send(ss);
